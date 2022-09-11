@@ -6,7 +6,7 @@
 
 Simple telegram bot that finds music for you.
 
-Bot gets name of song, finds it, installs, sends to user and deletes it.
+Bot gets name of song, finds it, downloads to server storage (probably your computer), sends to user and deletes from storage.
 
 ### Installation
 1) Clone repository
