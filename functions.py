@@ -30,7 +30,7 @@ def serve_user(message: telebot.types.Message):
             try:
                 with open(f'{source}{filename}', 'wb') as f:
                     f.write(audiofile.content)
-                    print(f"Installed {filename}")
+                    print(f"Downloaded {filename}")
             except OSError:
                 print('Could not download song')
             print(f"Sending {filename}")
