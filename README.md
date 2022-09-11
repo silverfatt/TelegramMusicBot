@@ -14,7 +14,7 @@ Bot gets name of song, finds it, installs, sends to user and deletes it.
 
 ### Launch
 
-open terminal and run `python main.py`
+Open terminal and run `python main.py`
 
 Don't forget to get a token of your bot and add it to `functions.py`:
 
