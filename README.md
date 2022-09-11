@@ -9,8 +9,8 @@ Simple telegram bot that finds music for you.
 Bot gets name of song, finds it, installs, sends to user and deletes it.
 
 ### Installation
-1) clone repository
-2) open terminal and run `pip install requirements.txt`
+1) Clone repository
+2) Open terminal and run `pip install requirements.txt`
 
 ### Launch
 
