@@ -16,4 +16,8 @@ Bot gets name of song, finds it, installs, sends to user and deletes it.
 
 open terminal and run `python main.py`
 
-Don't forget to get a token of your bot and add it to functions.py
+Don't forget to get a token of your bot and add it to `functions.py`:
+
+```python
+bot = telebot.TeleBot('YOUR-TOKEN-HERE')
+```
