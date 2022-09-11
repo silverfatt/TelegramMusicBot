@@ -2,7 +2,7 @@ import os
 import telebot
 from parse import *
 
-bot = telebot.TeleBot('5719168851:AAFsyBNALIggcpY7oX5PKx9bs1Ie9TF-yyU')
+bot = telebot.TeleBot('YOUR-YOKEN-HERE')
 
 # Directory where songs will be temporarily stored, could be changed
 source = "/Users/Admin/Downloads/"
