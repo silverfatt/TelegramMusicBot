@@ -5,6 +5,9 @@ from parse import *
 
 bot = telebot.TeleBot('YOUR-TOKEN-HERE')
 
+# Directory where songs will be temporarily stored, could be changed
+source = "/Users/Admin/Downloads/"
+
 
 def serve_user(message: telebot.types.Message):
     """
@@ -21,23 +24,24 @@ def serve_user(message: telebot.types.Message):
     else:
         try:
             url = request_page(message.text)
+            filename = f"{message.from_user.id}${message.id}.mp3"
             audiofile = requests.get(url)
-            with open(f'/Users/Admin/Downloads/{message.id}.mp3', 'wb') as f:
+            with open(f'{source}{filename}', 'wb') as f:
                 f.write(audiofile.content)
-                print(f"Installed {message.id}")
+                print(f"Installed {filename}")
             for i in range(10):
                 try:
-                    print(f"Sending {message.id}")
-                    bot.send_audio(message.chat.id, audio=open(f'/Users/Admin/Downloads/{message.id}.mp3', 'rb'))
-                    print(f"Sent {message.id}")
+                    print(f"Sending {filename}")
+                    bot.send_audio(message.chat.id, audio=open(f'{source}{filename}', 'rb'))
+                    print(f"Sent {filename}")
                     break
                 except FileNotFoundError:
                     time.sleep(1)
                     if i == 9:
                         bot.send_message(message.chat.id, 'Could not send a song')
-            if os.path.isfile(f'/Users/Admin/Downloads/{message.id}.mp3'):
-                os.remove(f'/Users/Admin/Downloads/{message.id}.mp3')
-                print(f"Deleted {message.id}")
+            if os.path.isfile(f'{source}{filename}'):
+                os.remove(f'{source}{filename}')
+                print(f"Deleted {filename}")
         except TypeError:
             bot.send_message(message.chat.id, 'Could not find a song')
             print("Could not find a song")
