@@ -1,8 +1,10 @@
 import os
+import ssl
+
 import telebot
 from parse import *
 
-bot = telebot.TeleBot('YOUR-YOKEN-HERE')
+bot = telebot.TeleBot('YOUR-TOKEN-HERE')
 
 # Directory where songs will be temporarily stored, could be changed
 source = "/Users/Admin/Downloads/"
@@ -37,6 +39,6 @@ def serve_user(message: telebot.types.Message):
             if os.path.isfile(f'{source}{filename}'):
                 os.remove(f'{source}{filename}')
                 print(f"Deleted {filename}")
-        except TypeError:
+        except (TypeError, ssl.SSLError, requests.exceptions.ConnectionError):
             bot.send_message(message.chat.id, 'Could not find a song')
             print("Could not find a song")
